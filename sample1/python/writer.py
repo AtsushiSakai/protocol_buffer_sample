@@ -18,13 +18,13 @@ def main():
     person1.id = 1234
     person1.name = "John Doe"
     person1.email = "jdoe@example.com"
-    phone = person1.phones.add()
-    phone.number = "555-4321"
-    phone.type = addressbook_pb2.Person.HOME
-
     # person1.no_such_field = 1  # raises AttributeError
     # person1.id = "1234"        # raises TypeError
 
+    phone = person1.phones.add()
+    phone.number = "555-4321"
+    phone.type = addressbook_pb2.Person.HOME
+    
     person2 = address_book.people.add()
     person2.id = 4321
     person2.name = "Tom Ranger"
