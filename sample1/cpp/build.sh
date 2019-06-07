@@ -5,5 +5,6 @@ cwd=`dirname "${0}"`
 expr "${0}" : "/.*" > /dev/null || cwd=`(cd "${cwd}" && pwd)`
 
 gcc ${cwd}/writer.cpp ${cwd}/addressbook.pb.cc -lprotobuf -lstdc++ -std=c++11 -o writer.out
+gcc ${cwd}/reader.cpp ${cwd}/addressbook.pb.cc -lprotobuf -lstdc++ -std=c++11 -o reader.out
 
 echo "done"

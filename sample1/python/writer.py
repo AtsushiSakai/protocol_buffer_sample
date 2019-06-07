@@ -1,4 +1,6 @@
-""" 
+
+
+"""
 
 Protocol buffer writer in Python
 
@@ -24,7 +26,7 @@ def main():
     phone = person1.phones.add()
     phone.number = "555-4321"
     phone.type = addressbook_pb2.Person.HOME
-    
+
     person2 = address_book.people.add()
     person2.id = 4321
     person2.name = "Tom Ranger"
@@ -33,10 +35,10 @@ def main():
     phone.number = "555-4322"
     phone.type = addressbook_pb2.Person.WORK
 
-    print(address_book)  # Human readerble print
+    print(address_book)  # Human readable print
 
     # writing the data
-    f = open("pbdata.dat", "wb")
+    f = open("pbdata_py.dat", "wb")
     f.write(address_book.SerializeToString())
     f.close()
 
@@ -45,3 +47,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

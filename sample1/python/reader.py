@@ -1,4 +1,7 @@
-""" 
+
+
+
+"""
 
 Protocol buffer reader in Python
 
@@ -15,7 +18,9 @@ def main():
     address_book = addressbook_pb2.AddressBook()
 
     # Read the existing address book.
-    f = open("pbdata.dat", "rb")
+    f = open("pbdata_py.dat", "rb")  # read data from python code
+    # f = open("../cpp/pbdata_cpp.dat", "rb")  # read data from cpp code
+
     address_book.ParseFromString(f.read())
     f.close()
 
@@ -26,3 +31,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
