@@ -19,9 +19,9 @@ def main():
     address_book = addressbook_pb2.AddressBook()
 
     # Read the existing address book.
-    # file_path = open("pbdata_py.dat", "rb")  # read
-    file_path = open("../../sample1/python/pbdata_py.dat",
-                     "rb")  # read old data
+    file_path = open("pbdata_py.dat", "rb")  # read
+    # file_path = open("../../sample1/python/pbdata_py.dat",
+    # "rb")  # read old data
 
     address_book.ParseFromString(file_path.read())
     file_path.close()

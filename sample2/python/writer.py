@@ -18,9 +18,9 @@ def main():
     address_book = addressbook_pb2.AddressBook()
 
     person1 = address_book.people.add()
-    person1.id = 1234
+    # person1.id = 1234
     person1.name = "John Doe"
-    person1.email = "jdoe@example.com"
+    # person1.email = "jdoe@example.com"
     person1.weight = 70.0
     # person1.no_such_field = 1  # raises AttributeError
     # person1.id = "1234"        # raises TypeError
@@ -30,9 +30,9 @@ def main():
     phone.type = addressbook_pb2.Person.HOME
 
     person2 = address_book.people.add()
-    person2.id = 4321
+    # person2.id = 4321
     person2.name = "Tom Ranger"
-    person2.email = "tranger@example.com"
+    # person2.email = "tranger@example.com"
     person2.weight = 50.0
     phone = person2.phones.add()
     phone.number = "555-4322"
