@@ -53,7 +53,7 @@ function main()
     iob = PipeBuffer();
     writeproto(iob, address_book)
 
-    open( "pddata_julia.dat", "w" ) do fp
+    open( "pbdata_julia.dat", "w" ) do fp
         write( fp, iob )
     end
 

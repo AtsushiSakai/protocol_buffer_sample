@@ -13,7 +13,9 @@ function main()
     println(PROGRAM_FILE," start!!")
 
     stream = UInt8[]
-    open( "pddata_julia.dat", "r" ) do fp
+    # open( "pbdata_julia.dat", "r" ) do fp
+    # open( "../cpp/pbdata_cpp.dat", "r" ) do fp
+    open( "../python/pbdata_py.dat", "r" ) do fp
         stream = read( fp )
     end
     iob = PipeBuffer(stream)
