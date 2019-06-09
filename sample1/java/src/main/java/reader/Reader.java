@@ -3,9 +3,6 @@ package reader;
 import java.io.FileInputStream;
 
 import tutorial.Addressbook.AddressBook;
-import tutorial.Addressbook.Person;
-import tutorial.Addressbook.Person.PhoneNumber;
-import static tutorial.Addressbook.Person.PhoneType.*;
 
 public class Reader {
 
