@@ -2,4 +2,3 @@
 
 protocol_buffer_sample
 
-# Lisence
