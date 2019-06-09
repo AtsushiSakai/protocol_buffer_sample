@@ -21,8 +21,9 @@ def main():
     # Read the existing address book.
     # file_path = open("pbdata_py.dat", "rb")  # read data from python code
     # file_path = open("../cpp/pbdata_cpp.dat", "rb")  # read data from cpp code
-    file_path = open("../julia/pbdata_julia.dat",
-                     "rb")  # read data from cpp code
+    # file_path = open("../julia/pbdata_julia.dat","rb")  # read data from cpp code
+    file_path = open("../java/pbdata_java.dat",
+                     "rb")  # read data from java code
 
     address_book.ParseFromString(file_path.read())
     file_path.close()
