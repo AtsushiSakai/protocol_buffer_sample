@@ -2,6 +2,15 @@ syntax = "proto3";
 
 package tutorial;
 
+service RequestAddressBook {
+  rpc Request (AddressBookRequest) returns (AddressBook) {}
+}
+
+message AddressBookRequest{
+    int64 person_number = 1;
+}
+
+
 message Person {
   string name = 1;
   int32 id = 2;
