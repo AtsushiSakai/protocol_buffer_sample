@@ -1,5 +1,6 @@
 """
 
+gRPC client for Server streaming PRC sample in Python
 
 author: Atsushi Sakai
 

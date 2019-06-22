@@ -1,6 +1,6 @@
 """
 
-gRPC server for unary PRC sample in Python
+gRPC server for Server streaming PRC sample in Python
 
 
 author: Atsushi Sakai(@Atsushi_twi)
