@@ -1,6 +1,3 @@
-
-
-
 """
 
 
@@ -8,10 +5,9 @@ author: Atsushi Sakai
 
 """
 
-
-import grpc
 import addressbook_pb2
 import addressbook_pb2_grpc
+import grpc
 
 
 def main():
@@ -19,13 +15,14 @@ def main():
 
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = addressbook_pb2_grpc.RequestAddressBookStub(channel)
-        response = stub.Request(
+        responses = stub.Request(
             addressbook_pb2.AddressBookRequest(person_number=2))
-        print("response: ", response)
+
+        for r in responses:
+            print("response: ", r)
 
     print("done!!")
 
 
 if __name__ == '__main__':
     main()
-

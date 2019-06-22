@@ -3,19 +3,19 @@
 
 """
 
+gRPC server for unary PRC sample in Python
 
-author: Atsushi Sakai
+
+author: Atsushi Sakai(@Atsushi_twi)
 
 """
 
-from concurrent import futures
 import time
-
-import grpc
-
+from concurrent import futures
 
 import addressbook_pb2
 import addressbook_pb2_grpc
+import grpc
 
 
 class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookServicer):
