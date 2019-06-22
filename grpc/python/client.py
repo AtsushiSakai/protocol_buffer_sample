@@ -3,6 +3,8 @@
 
 """
 
+grpc client sample in Python
+
 
 author: Atsushi Sakai
 
