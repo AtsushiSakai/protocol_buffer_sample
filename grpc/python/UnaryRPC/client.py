@@ -1,8 +1,7 @@
 
-
-
 """
 
+gRPC server for unary PRC sample in Python
 
 author: Atsushi Sakai
 
@@ -28,4 +27,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
