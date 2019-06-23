@@ -1,6 +1,6 @@
 """
 
-gRPC server for Server streaming PRC sample in Python
+gRPC server for bidirectional streaming PRC sample in Python
 
 
 author: Atsushi Sakai(@Atsushi_twi)
@@ -16,11 +16,11 @@ import addressbook_pb2
 import addressbook_pb2_grpc
 
 
-class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookWithServerStreamingRPCServicer):
+class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookWithBidirectionalStreamingRPCServicer):
 
     def Request(self, request, context):
-        print(request)
-        print(context)
+        for r in request:
+            print(r)
 
         address_book = addressbook_pb2.AddressBook()
 
@@ -58,7 +58,7 @@ def main():
     print("start!!")
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    addressbook_pb2_grpc.add_RequestAddressBookWithServerStreamingRPCServicer_to_server(
+    addressbook_pb2_grpc.add_RequestAddressBookWithBidirectionalStreamingRPCServicer_to_server(
         AddressBookResponder(),
         server)
     server.add_insecure_port('[::]:50051')

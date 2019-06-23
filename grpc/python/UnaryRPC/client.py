@@ -6,16 +6,17 @@ author: Atsushi Sakai
 
 """
 
+import grpc
+
 import addressbook_pb2
 import addressbook_pb2_grpc
-import grpc
 
 
 def main():
     print("start!!")
 
     with grpc.insecure_channel('localhost:50051') as channel:
-        stub = addressbook_pb2_grpc.RequestAddressBookStub(channel)
+        stub = addressbook_pb2_grpc.RequestAddressBookWithUnaryRPCStub(channel)
         response = stub.Request(
             addressbook_pb2.AddressBookRequest(person_number=2))
         print("response: ", response)

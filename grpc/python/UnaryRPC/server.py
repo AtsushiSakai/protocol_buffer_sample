@@ -10,12 +10,13 @@ author: Atsushi Sakai(@Atsushi_twi)
 import time
 from concurrent import futures
 
-import addressbook_pb2
-import addressbook_pb2_grpc
 import grpc
 
+import addressbook_pb2
+import addressbook_pb2_grpc
 
-class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookServicer):
+
+class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookWithUnaryRPCServicer):
 
     def Request(self, request, context):
         """
@@ -55,7 +56,7 @@ def main():
     print("start!!")
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    addressbook_pb2_grpc.add_RequestAddressBookServicer_to_server(
+    addressbook_pb2_grpc.add_RequestAddressBookWithUnaryRPCServicer_to_server(
         AddressBookResponder(),
         server)
     server.add_insecure_port('[::]:50051')
