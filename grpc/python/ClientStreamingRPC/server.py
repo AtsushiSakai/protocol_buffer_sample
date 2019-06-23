@@ -1,6 +1,6 @@
 """
 
-gRPC server for unary PRC sample in Python
+gRPC server for Client streaming PRC sample in Python
 
 
 author: Atsushi Sakai(@Atsushi_twi)
@@ -15,17 +15,11 @@ import addressbook_pb2_grpc
 import grpc
 
 
-class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookServicer):
+class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookWithClientStreamingRPCServicer):
 
     def Request(self, request, context):
-        """
-
-        :param request:
-        :param context:
-        :return:
-        """
-        print(request)
-        print(context)
+        for r in request:
+            print(r)
 
         address_book = addressbook_pb2.AddressBook()
 
@@ -38,6 +32,8 @@ class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookServicer):
         phone.number = "555-4321"
         phone.type = addressbook_pb2.Person.HOME
 
+        address_book = addressbook_pb2.AddressBook()
+
         person2 = address_book.people.add()
         person2.id = 4321
         person2.name = "Tom Ranger"
@@ -48,14 +44,14 @@ class AddressBookResponder(addressbook_pb2_grpc.RequestAddressBookServicer):
 
         print(address_book)  # Human readable print
 
-        return address_book
+        return address_book  # send second message
 
 
 def main():
     print("start!!")
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    addressbook_pb2_grpc.add_RequestAddressBookServicer_to_server(
+    addressbook_pb2_grpc.add_RequestAddressBookWithClientStreamingRPCServicer_to_server(
         AddressBookResponder(),
         server)
     server.add_insecure_port('[::]:50051')

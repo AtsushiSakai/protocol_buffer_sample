@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package tutorial;
+
+service RequestAddressBookWithUnaryRPC {
+    rpc Request (AddressBookRequest) returns (AddressBook) {
+    }
+}
+
+service RequestAddressBookWithServerStreamingRPC {
+    rpc Request (AddressBookRequest) returns (stream AddressBook) {
+    }
+}
+
+service RequestAddressBookWithClientStreamingRPC {
+    rpc Request (stream AddressBookRequest) returns (AddressBook) {
+    }
+}
+
+service RequestAddressBookWithBidirectionalStreamingRPC {
+    rpc Request (stream AddressBookRequest) returns (AddressBook) {
+    }
+}
+
+
+message AddressBookRequest {
+    int64 person_number = 1;
+}
+
+
+message Person {
+    string name = 1;
+    int32 id = 2;
+    string email = 3;
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    message PhoneNumber {
+        string number = 1;
+        PhoneType type = 2;
+    }
+
+    repeated PhoneNumber phones = 4;
+}
+
+message AddressBook {
+    repeated Person people = 1;
+}
+

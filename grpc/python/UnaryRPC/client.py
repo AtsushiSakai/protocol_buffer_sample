@@ -1,4 +1,3 @@
-
 """
 
 gRPC server for unary PRC sample in Python
@@ -6,7 +5,6 @@ gRPC server for unary PRC sample in Python
 author: Atsushi Sakai
 
 """
-
 
 import addressbook_pb2
 import addressbook_pb2_grpc
